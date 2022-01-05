@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CryptoTracker3</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="submit_text">Submit</string>
+    <string name="notes_text">Notes</string>
+    <string name="initial_purchase_price_text">Initial Purchase Price</string>
+    <string name="days_to_hold_text">Days to Hold</string>
+    <string name="sell_percentage_text">Sell Percentage</string>
+    <string name="high_sell_price_text">High Sell Price</string>
+    <string name="low_sell_price_text">Low Sell Price</string>
+    <string name="investment_amount_text">Investment Amount</string>
+    <string name="crypto_spinner_description">Selectable Crypto coins</string>
+    <string name="news_title">News</string>
+    <string name="stats_title">Statistics</string>
+    <string name="input_crypto_title">Input Crypto</string>
+    <string name="input_title">Input</string>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.input.InputFragment">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start|fill_horizontal|top|fill_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/cryptoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/crypto_spinner_description"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/investmentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/investment_amount_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/lowText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/low_sell_price_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/highText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/high_sell_price_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/sellPercentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/sell_percentage_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/daysHoldText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/days_to_hold_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/initialPurchaseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/initial_purchase_price_text"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/notesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/notes_text"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="@string/submit_text" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
