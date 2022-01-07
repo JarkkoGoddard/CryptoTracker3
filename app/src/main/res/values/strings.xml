@@ -16,4 +16,9 @@
     <string name="stats_title">Statistics</string>
     <string name="input_crypto_title">Input Crypto</string>
     <string name="input_title">Input</string>
+    <string name="days_left_to_hold_title">Days Left To Hold</string>
+    <string name="percentage_title">Percentage</string>
+    <string name="investment_title">Investment</string>
+    <string name="amount_title">Amount</string>
+    <string name="coin_title">Coin</string>
 </resources>
