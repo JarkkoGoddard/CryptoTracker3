@@ -3,7 +3,7 @@
 
     <PreferenceCategory app:title="Night Mode">
 
-        <SwitchPreferenceCompat
+        <Switch
             android:id="@+id/night_mode_toggle"
             app:key="attachment"
             app:summaryOff="Night Mode Off"

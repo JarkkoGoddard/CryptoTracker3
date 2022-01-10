@@ -1,5 +1,6 @@
 package com.example.cryptotracker3.ui.news;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,7 +34,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements SelectListener{
 
     private NewsViewModel mViewModel;
     private @NonNull FragmentNewsBinding binding;
@@ -70,7 +71,7 @@ public class NewsFragment extends Fragment {
         recyclerView = getActivity().findViewById(R.id.recycler_main);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        adapter = new CustomAdapter(getContext(), list);
+        adapter = new CustomAdapter(getContext(), list, this::onNewsClicked);
         recyclerView.setAdapter(adapter);
     }
 
@@ -85,5 +86,11 @@ public class NewsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+    @Override
+    public void onNewsClicked(NewsHeadlines headlines) {
+        startActivity(new Intent(getActivity(), NewsWebActivity.class)
+                .putExtra("data", headlines));
     }
 }

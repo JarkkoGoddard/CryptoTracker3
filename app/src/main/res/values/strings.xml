@@ -68,5 +68,6 @@
     <string name="current_price_title">Current Price</string>
     <string name="change_title">Change</string>
     <string name="percentage_change_title">Percentage Change</string>
+    <string name="night_mode_text">Night Mode</string>
 
 </resources>

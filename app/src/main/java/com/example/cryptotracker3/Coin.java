@@ -18,4 +18,8 @@ public class Coin {
     public Double getValue(){
         return mValue;
     }
+
+    public String getCurrency() {
+        return mCurrency;
+    }
 }

@@ -2,8 +2,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/settings"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/night_mode_toggle"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:text="@string/night_mode_text" />
 </LinearLayout>

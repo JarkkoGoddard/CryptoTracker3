@@ -1,8 +1,9 @@
 package com.example.cryptotracker3.ui.news;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class NewsApiResponse {
+public class NewsApiResponse implements Serializable {
     String status;
     int totalResults;
     List<NewsHeadlines> articles;
