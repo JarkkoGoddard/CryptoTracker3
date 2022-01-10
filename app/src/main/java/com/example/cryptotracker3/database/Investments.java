@@ -9,11 +9,8 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "investments_table")
 public class Investments {
 
-    @PrimaryKey (autoGenerate = true)
-    @ColumnInfo (name = "uid")
+    @PrimaryKey
     @NonNull
-    private int uId;
-
     @ColumnInfo (name = "coin")
     private String coin;
 
@@ -37,14 +34,6 @@ public class Investments {
 
     @ColumnInfo (name = "notes")
     private String notes;
-
-    public int getUId() {
-        return uId;
-    }
-
-    public void setUId(int uId) {
-        this.uId = uId;
-    }
 
     public String getCoin() {
         return coin;
@@ -110,8 +99,7 @@ public class Investments {
         this.notes = notes;
     }
 
-    public Investments(int uId, String coin, double investment, double lowSellPrice, double highSellPrice, int sellPercentage, int daysToHold, double initialPurchasePrice, String notes) {
-        this.uId = uId;
+    public Investments(String coin, double investment, double lowSellPrice, double highSellPrice, int sellPercentage, int daysToHold, double initialPurchasePrice, String notes) {
         this.coin = coin;
         this.investment = investment;
         this.lowSellPrice = lowSellPrice;

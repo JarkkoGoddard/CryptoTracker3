@@ -16,6 +16,10 @@ public interface InvestmentsDao {
     @Query("DELETE FROM investments_table")
     void deleteAll();
 
-    @Query("SELECT * from investments_table ORDER BY uid ASC")
+    @Query("SELECT * from investments_table ORDER BY coin ASC")
     LiveData<List<Investments>> getAllData();
+
+    @Query("SELECT SUM(investment) as total FROM investments_table")
+    LiveData<Double> getTotalInvestments();
+
 }

@@ -28,4 +28,11 @@
         android:name="com.example.cryptotracker3.ui.news.NewsFragment"
         android:label="@string/news_title"
         tools:layout="@layout/fragment_stats" />
+
+    <activity
+        android:id="@+id/navigation_settings"
+        android:name="com.example.cryptotracker3.ui.settings.SettingsActivity"
+        android:label="@string/settings_title"
+        tools:layout="@layout/settings_activity"/>
+
 </navigation>

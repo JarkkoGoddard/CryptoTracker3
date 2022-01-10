@@ -38,4 +38,8 @@ public class InvestmentsRepository {
             return null;
         }
     }
+
+    public LiveData<Double> sumAllItems(){
+        return mInvestmentsDao.getTotalInvestments();
+    }
 }

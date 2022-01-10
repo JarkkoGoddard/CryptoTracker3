@@ -10,6 +10,7 @@ public class InputViewModel extends ViewModel {
 
     public InputViewModel() {
         mText = new MutableLiveData<>();
+
         mText.setValue("Input information about your Crypto investments");
     }
 

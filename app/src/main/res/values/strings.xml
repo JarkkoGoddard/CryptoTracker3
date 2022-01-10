@@ -21,4 +21,52 @@
     <string name="investment_title">Investment</string>
     <string name="amount_title">Amount</string>
     <string name="coin_title">Coin</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string-array name="coin_array">
+        <item>Ampleforth</item>
+        <item>Ankr</item>
+        <item>Apollo</item>
+        <item>Bancor</item>
+        <item>Binancecoin</item>
+        <item>Bitcoin</item>
+        <item>Bitcoin-Cash</item>
+        <item>Cardano</item>
+        <item>Chainlink</item>
+        <item>Dash</item>
+        <item>Ethereum</item>
+        <item>Tether</item>
+        <item>Polkadot</item>
+        <item>Uniswap</item>
+        <item>Litecoin</item>
+        <item>Internet Computer</item>
+        <item>Eos</item>
+        <item>The Graph</item>
+        <item>Maker</item>
+        <item>Numeraire</item>
+        <item>Decentraland</item>
+        <item>Sushi</item>
+        <item>Filecoin</item>
+    </string-array>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="settings_title">Settings</string>
+    <string name="coin_list">ampleforth,ankr,apollo,bancor,binancecoin,bitcoin,bitcoin-cash,cardano,chainlink,dash,ethereum,tether,polkadot,uniswap,litecoin,internet-computer,eos,the-graph,maker,numeraire,decentraland,sushi,filecoin</string>
+    <string name="initial_price_title">Initial price</string>
+    <string name="current_price_title">Current Price</string>
+    <string name="change_title">Change</string>
+    <string name="percentage_change_title">Percentage Change</string>
+
 </resources>

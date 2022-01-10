@@ -43,7 +43,7 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.In
         notifyDataSetChanged();
     }
 
-    class InvestmentHolder extends RecyclerView.ViewHolder{
+    static class InvestmentHolder extends RecyclerView.ViewHolder{
         private TextView coinTextView;
         private TextView amountTextView;
         private TextView investTextView;

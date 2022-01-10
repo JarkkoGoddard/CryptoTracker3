@@ -13,6 +13,8 @@ public class InvestmentsViewModel extends AndroidViewModel {
 
     private LiveData<List<Investments>> mAllData;
 
+    private LiveData<Double> mAllSums;
+
     public InvestmentsViewModel (Application application) {
         super(application);
         mRepository = new InvestmentsRepository(application);
@@ -21,4 +23,6 @@ public class InvestmentsViewModel extends AndroidViewModel {
     public LiveData<List<Investments>> getAllData(){return mAllData;}
 
     public void insert (Investments investments) {mRepository.insert(investments);}
+
+    public LiveData<Double> getAllSums(){return mAllSums;}
 }

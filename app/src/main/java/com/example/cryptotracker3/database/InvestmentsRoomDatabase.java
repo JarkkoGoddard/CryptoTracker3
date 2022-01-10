@@ -29,9 +29,11 @@ public abstract class InvestmentsRoomDatabase extends RoomDatabase{
         return INSTANCE;
     }
 
+    //Old code used to test the database
+
     private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
         @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             new PopulateDbAsyncTask(INSTANCE).execute();
         }
@@ -44,7 +46,7 @@ public abstract class InvestmentsRoomDatabase extends RoomDatabase{
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            investmentsDao.insert(new Investments(1, "Bitcoin", 500.00, 31000.00, 35000.00, 50, 30, 31500.00, "test"));
+            investmentsDao.insert(new Investments("Bitcoin", 500.00, 31000.00, 35000.00, 50, 30, 31500.00, "test"));
             return null;
         }
     }
