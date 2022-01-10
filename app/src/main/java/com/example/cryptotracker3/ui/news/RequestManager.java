@@ -27,7 +27,7 @@ public class RequestManager {
                 public void onResponse(Call<NewsApiResponse> call, Response<NewsApiResponse> response) {
 
                     if (response.isSuccessful()){
-                        Toast.makeText(context,"Error", Toast.LENGTH_LONG).show();
+
                     }
                     assert response.body() != null;
                     listener.onFetchData(response.body().getArticles(), response.message());

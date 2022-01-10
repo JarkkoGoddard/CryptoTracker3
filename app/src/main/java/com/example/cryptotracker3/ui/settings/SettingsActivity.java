@@ -17,7 +17,6 @@ import com.example.cryptotracker3.R;
 public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat nightMode;
-    static Boolean isTouched = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,28 +28,14 @@ public class SettingsActivity extends AppCompatActivity {
         }
         nightMode = findViewById(R.id.night_mode_toggle);
 
-        nightMode.setOnTouchListener(new View.OnTouchListener() {
+        nightMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                isTouched = true;
-                return false;
-            }
-        });
-
-        nightMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if (isTouched) {
-                    isTouched = false;
-                    if (isChecked) {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        nightMode.setChecked(true);
-                    }
-                    else {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    }
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
         });
