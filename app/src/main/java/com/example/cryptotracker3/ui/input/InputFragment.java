@@ -18,8 +18,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cryptotracker3.R;
-import com.example.cryptotracker3.database.Investments;
-import com.example.cryptotracker3.database.InvestmentsViewModel;
+import com.example.cryptotracker3.database.investment.Investments;
+import com.example.cryptotracker3.database.investment.InvestmentsViewModel;
 import com.example.cryptotracker3.databinding.FragmentInputBinding;
 
 public class InputFragment extends Fragment {

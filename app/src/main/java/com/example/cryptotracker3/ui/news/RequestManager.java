@@ -17,9 +17,9 @@ public class RequestManager {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    public void getNewsHeadlines(OnFetchDataListener listener, String query){
+    public void getNewsHeadlines(OnFetchDataListener listener, String query, String language, String sortBy){
         CallNewsApi callNewsApi = retrofit.create(CallNewsApi.class);
-        Call<NewsApiResponse> call = callNewsApi.callHeadlines(query, "fc6949d3aedf402d8f72324679021dad");
+        Call<NewsApiResponse> call = callNewsApi.callHeadlines(query, language, sortBy, "fc6949d3aedf402d8f72324679021dad");
 
         try{
             call.enqueue(new Callback<NewsApiResponse>() {
@@ -48,9 +48,11 @@ public class RequestManager {
     }
 
     public interface CallNewsApi{
-        @GET("top-headlines")
+        @GET("everything")
         Call<NewsApiResponse> callHeadlines(
-                @Query("q") String query,
+                @Query("qInTitle") String query,
+                @Query("language") String language,
+                @Query("sortBy") String sortBy,
                 @Query("apiKey") String api_key
         );
     }

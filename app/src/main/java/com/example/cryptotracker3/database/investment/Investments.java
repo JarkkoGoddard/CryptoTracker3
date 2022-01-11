@@ -1,4 +1,4 @@
-package com.example.cryptotracker3.database;
+package com.example.cryptotracker3.database.investment;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

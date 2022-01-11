@@ -2,7 +2,9 @@ package com.example.cryptotracker3.ui.news;
 
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cryptotracker3.R;
@@ -17,14 +19,14 @@ public class NewsWebActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_web);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
-        //txtContent = findViewById(R.id.text_content);
         webView = findViewById(R.id.webpage);
-
         headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");
-
-        //txtContent.setText(headlines.getContent());
-
+        webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(headlines.getUrl());
 
 

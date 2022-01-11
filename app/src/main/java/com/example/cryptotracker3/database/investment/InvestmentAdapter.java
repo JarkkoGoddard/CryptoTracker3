@@ -1,4 +1,4 @@
-package com.example.cryptotracker3.database;
+package com.example.cryptotracker3.database.investment;
 
 import android.view.LayoutInflater;
 import android.view.View;

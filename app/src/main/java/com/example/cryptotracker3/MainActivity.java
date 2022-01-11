@@ -18,9 +18,9 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cryptotracker3.database.InvestmentAdapter;
-import com.example.cryptotracker3.database.Investments;
-import com.example.cryptotracker3.database.InvestmentsViewModel;
+import com.example.cryptotracker3.database.investment.InvestmentAdapter;
+import com.example.cryptotracker3.database.investment.Investments;
+import com.example.cryptotracker3.database.investment.InvestmentsViewModel;
 import com.example.cryptotracker3.databinding.ActivityMainBinding;
 import com.example.cryptotracker3.ui.settings.SettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

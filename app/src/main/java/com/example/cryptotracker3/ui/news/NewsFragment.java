@@ -51,7 +51,7 @@ public class NewsFragment extends Fragment implements SelectListener{
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RequestManager manager = new RequestManager(this.getContext());
-        manager.getNewsHeadlines(listener, "crypto");
+        manager.getNewsHeadlines(listener, "cryptocurrency", "en", "popularity");
         return root;
     }
 

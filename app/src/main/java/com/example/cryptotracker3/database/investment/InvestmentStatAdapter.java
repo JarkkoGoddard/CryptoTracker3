@@ -1,4 +1,4 @@
-package com.example.cryptotracker3.database;
+package com.example.cryptotracker3.database.investment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,11 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ComponentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cryptotracker3.Coin;
-import com.example.cryptotracker3.MainActivity;
 import com.example.cryptotracker3.R;
 
 import java.util.ArrayList;
