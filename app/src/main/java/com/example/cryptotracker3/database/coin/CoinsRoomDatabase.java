@@ -1,4 +1,4 @@
-package com.example.cryptotracker3.database.investment;
+package com.example.cryptotracker3.database.coin;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,17 +9,17 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = Investments.class, version = 1, exportSchema = false)
-public abstract class InvestmentsRoomDatabase extends RoomDatabase{
+@Database(entities = Coins.class, version = 1, exportSchema = false)
+public abstract class CoinsRoomDatabase extends RoomDatabase {
 
-    public abstract InvestmentsDao investmentsDao();
-    private static InvestmentsRoomDatabase INSTANCE;
+    public abstract CoinsDao coinsDao();
+    private static CoinsRoomDatabase INSTANCE;
 
-    static InvestmentsRoomDatabase getDatabase(final Context context){
+    static CoinsRoomDatabase getDatabase(final Context context){
         if (INSTANCE == null){
-            synchronized (InvestmentsRoomDatabase.class){
+            synchronized (CoinsRoomDatabase.class){
                 if (INSTANCE == null){
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), InvestmentsRoomDatabase.class, "investments_database")
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), CoinsRoomDatabase.class, "coins_database")
                             .fallbackToDestructiveMigration()
                             .addCallback(roomCallback)
                             .build();
@@ -38,13 +38,13 @@ public abstract class InvestmentsRoomDatabase extends RoomDatabase{
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>{
-        private InvestmentsDao investmentsDao;
-        private PopulateDbAsyncTask(InvestmentsRoomDatabase db){
-            investmentsDao = db.investmentsDao();
+        private CoinsDao coinsDao;
+        private PopulateDbAsyncTask(CoinsRoomDatabase db){
+            coinsDao = db.coinsDao();
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            investmentsDao.insert(new Investments("Bitcoin", 500.00, 31000.00, 35000.00, 50, 30, 31500.00, "test"));
+            coinsDao.insertCoins(new Coins("Pound Sterling", "gbp", 1.0));
             return null;
         }
     }

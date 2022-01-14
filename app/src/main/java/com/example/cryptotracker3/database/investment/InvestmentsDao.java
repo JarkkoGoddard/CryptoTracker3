@@ -3,6 +3,7 @@ package com.example.cryptotracker3.database.investment;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 @Dao
 public interface InvestmentsDao {
 
-    @Insert
+    @Insert (onConflict = OnConflictStrategy.REPLACE)
     void insert(Investments investments);
 
     @Query("DELETE FROM investments_table")

@@ -19,10 +19,6 @@ public class NewsWebActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_web);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
 
         webView = findViewById(R.id.webpage);
         headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");

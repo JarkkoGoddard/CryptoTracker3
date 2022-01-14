@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cryptotracker3.R;
@@ -16,6 +17,7 @@ import java.util.List;
 public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.InvestmentHolder> {
 
     private List<Investments> investmentsList = new ArrayList<>();
+    private double totalInvestments = 0;
     @NonNull
     @Override
     public InvestmentHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,10 +28,12 @@ public class InvestmentAdapter extends RecyclerView.Adapter<InvestmentAdapter.In
     @Override
     public void onBindViewHolder(@NonNull InvestmentHolder holder, int position) {
         Investments currentInvestment = investmentsList.get(position);
+        totalInvestments = totalInvestments + currentInvestment.getInvestment();
         holder.coinTextView.setText(currentInvestment.getCoin());
         holder.amountTextView.setText(String.format("%.2f", currentInvestment.getInvestment() / currentInvestment.getInitialPurchasePrice()));
         holder.investTextView.setText(String.valueOf(currentInvestment.getInvestment()));
-        holder.percentageTextView.setText("100");
+        //Works but doesn't update the previous inputs
+        holder.percentageTextView.setText(String.format("%.2f", ((currentInvestment.getInvestment() / totalInvestments) * 100)));
         holder.daysTextView.setText(String.valueOf(currentInvestment.getDaysToHold()));
     }
 

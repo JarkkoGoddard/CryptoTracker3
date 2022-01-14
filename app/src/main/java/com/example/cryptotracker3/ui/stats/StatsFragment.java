@@ -11,15 +11,21 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cryptotracker3.database.coin.Coins;
+import com.example.cryptotracker3.database.coin.CoinsViewModel;
 import com.example.cryptotracker3.databinding.FragmentStatsBinding;
+import com.example.cryptotracker3.ui.stats.CoinAdapter;
+
+import java.util.List;
 
 public class StatsFragment extends Fragment {
 
     private StatsViewModel statsViewModel;
     private FragmentStatsBinding binding;
-    RecyclerView recyclerView;
+    private CoinsViewModel coinsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +36,20 @@ public class StatsFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
+        RecyclerView recyclerView;
+        RecyclerView.Adapter myAdapter;
         recyclerView = binding.statsRecycler;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+        myAdapter = new CoinAdapter();
+        recyclerView.setAdapter(myAdapter);
+        coinsViewModel = new ViewModelProvider(this).get(CoinsViewModel.class);
+        coinsViewModel.getAllCoins().observe(getViewLifecycleOwner(), new Observer<List<Coins>>() {
+            @Override
+            public void onChanged(List<Coins> coins) {
+                ((CoinAdapter) myAdapter).setCoins(coins);
+            }
+        });
         statsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -45,4 +64,6 @@ public class StatsFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 }

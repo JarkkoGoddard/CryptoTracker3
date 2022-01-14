@@ -18,6 +18,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cryptotracker3.database.coin.Coins;
+import com.example.cryptotracker3.database.coin.CoinsViewModel;
 import com.example.cryptotracker3.database.investment.InvestmentAdapter;
 import com.example.cryptotracker3.database.investment.Investments;
 import com.example.cryptotracker3.database.investment.InvestmentsViewModel;
@@ -45,11 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private InvestmentsViewModel investmentsViewModel;
-    public ArrayList<Coin> coinArrayList = new ArrayList<>();
-
-    public ArrayList<Coin> getCoinArrayList() {
-        return coinArrayList;
-    }
+    private CoinsViewModel coinsViewModel;
 
     public ArrayAdapter<Coin> coinArrayAdapter;
 
@@ -57,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        coinsViewModel = new ViewModelProvider(this).get(CoinsViewModel.class);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -75,16 +74,14 @@ public class MainActivity extends AppCompatActivity {
             getHTTPData();
         } catch (IOException e) {
             e.printStackTrace();
-            coinArrayList.add(new Coin("Load Error", "Currency", 0.0));
         }
-
-        double totalInvestments = 0 ;
 
         RecyclerView recyclerView = findViewById(R.id.simple_investments_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         InvestmentAdapter adapter = new InvestmentAdapter();
         recyclerView.setAdapter(adapter);
+        Log.d("test", String.valueOf(coinsViewModel.getAllCoins()));
         investmentsViewModel = new ViewModelProvider(this).get(InvestmentsViewModel.class);
         investmentsViewModel.getAllData().observe(this, new Observer<List<Investments>>() {
             @Override
@@ -130,18 +127,16 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 JSONObject oCoin;
                 final String myResponse = Objects.requireNonNull(response.body(), "Invalid Null API Response Received").string();
-                Log.d("OkHTTPResponse", "API Call Successful");
                 response.close();
 
                 try{
                     JSONObject oJSON = new JSONObject(myResponse);
-                    coinArrayList.clear();
 
                     double CoinValue;
                     for(Iterator<String> it = oJSON.keys(); it.hasNext();){
                         String coinName = it.next();
                         CoinValue = oJSON.getJSONObject(coinName).getDouble("gbp");
-                        coinArrayList.add(new Coin(coinName, "gbp", CoinValue));
+                        coinsViewModel.insertCoins(new Coins(coinName, "gbp", CoinValue));
                     }
                 } catch (JSONException e) {
                     Log.d("OKHTTPResponse", "JSON Format Problem");
